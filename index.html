@@ -1,9 +1,369 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior UX Research Portfolio | Imauri Hazel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 1. Global Resets and Variables (Modern Palette) --- */
+        :root {
+            --color-primary: #1d4ed8; /* Stronger Royal Blue */
+            --color-secondary: #059669; /* Emerald Green */
+            --color-accent: #f59e0b; /* Amber */
+            --color-text: #1f2937; /* Dark Slate Gray */
+            --color-background: #ffffff; /* Pure White */
+            --color-card-bg: #f9fafb; /* Very light gray for cards */
+            --font-main: 'Inter', sans-serif;
+            --max-width: 1100px; 
+            --content-width: 900px; 
+            --border-radius: 8px; /* Standard rounded corners */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-background);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        /* --- 2. Typography and Headings (Clean & Modern) --- */
+        h1, h2, h3 {
+            line-height: 1.2;
+            margin-bottom: 0.5em;
+        }
+
+        h1 { font-size: 3.5em; color: var(--color-primary); font-weight: 700;}
+        h2 { 
+            font-size: 2em; 
+            font-weight: 600;
+            color: var(--color-text);
+            padding-bottom: 0.5em; 
+            margin-top: 3em; 
+            border-bottom: 2px solid #e5e7eb; /* Subtle separator */
+            text-transform: none;
+            letter-spacing: normal;
+        }
+        h3 { 
+            font-size: 1.5em; 
+            color: var(--color-primary); 
+            margin-top: 0.5em; 
+            font-weight: 600;
+        }
+
+        p, ul {
+            margin-bottom: 1.2em;
+            font-size: 1.05em;
+            font-weight: 400;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--color-secondary);
+            text-decoration: underline;
+        }
+        
+        /* Explicit bolding class */
+        .strong-text {
+            font-weight: 600;
+            color: #1f2937; /* Default color for strong text outside of the skills-list */
+        }
+
+        /* --- 3. Hero Section (Minimalist Layout) --- */
+        .hero {
+            background-color: var(--color-card-bg); /* Light section background */
+            padding: 5em 0;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .profile-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%; 
+            border: 4px solid var(--color-background); 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            margin-bottom: 1.5em;
+        }
+
+        .hero p {
+            font-size: 1.25em;
+            font-weight: 300;
+            color: #4b5563;
+        }
+
+        .contact-links a {
+            margin: 0 0.8em;
+            font-weight: 600;
+            font-size: 1em;
+            text-transform: uppercase;
+        }
+
+        /* --- 4. Navigation (Sticky and Clean) --- */
+        .site-nav {
+            background-color: var(--color-primary);
+            padding: 1em 0;
+            position: sticky; 
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .site-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2.5em;
+            margin: 0;
+        }
+
+        .site-nav a {
+            color: white;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+        
+        .site-nav a:hover {
+            color: var(--color-accent); 
+            text-decoration: none;
+        }
+
+        /* --- 5. Project/Experience Section (Modern Cards) --- */
+        .content-area {
+            max-width: var(--content-width);
+            margin: 0 auto;
+            padding: 2em 0 5em;
+        }
+
+        .project {
+            /* Modern Card Style */
+            background-color: var(--color-card-bg);
+            padding: 2em;
+            margin-bottom: 2em;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Soft, subtle shadow */
+            border-left: 5px solid var(--color-secondary); /* Colored stripe for visual anchor */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project:hover {
+            transform: translateY(-3px); /* Subtle lift on hover */
+            box-shadow: 0 6px 16px rgba(5, 150, 105, 0.15); 
+        }
+
+        .project-meta {
+            font-size: 0.9em;
+            color: #6b7280; /* Neutral gray */
+            margin-bottom: 1em;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 0.5em;
+        }
+        
+        .project-meta .company {
+            font-weight: 700;
+            color: var(--color-primary);
+            text-transform: uppercase;
+        }
+        
+        .highlight-box {
+            background-color: #d1fae5; /* Very light green/teal background */
+            color: var(--color-secondary); 
+            padding: 0.2em 0.6em;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        
+        .key-methods {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 1.5em;
+        }
+
+        .key-methods li {
+            background-color: #e0f2f1; /* Light teal */
+            color: #0d9488; /* Darker teal text */
+            padding: 6px 12px;
+            border-radius: 20px; 
+            font-size: 0.9em;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        /* Skills section uses solid background for distinction */
+        .skills-list li {
+            background-color: var(--color-primary);
+            /* List item background is blue, the text inside the list item should be white for contrast */
+            color: white; 
+        }
+
+        /* Target the specific strong text inside the skills list items and make it white */
+        .skills-list .strong-text {
+            color: white; 
+        }
+
+        /* --- 6. Footer --- */
+        .site-footer {
+            background-color: #1f2937; /* Dark footer */
+            color: #e5e7eb;
+            padding: 3em 0;
+            text-align: center;
+            font-size: 1em;
+        }
+
+        .site-footer a {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* --- 7. Responsive Design --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5em; }
+            .hero p { font-size: 1.1em; }
+            .site-nav ul {
+                flex-wrap: wrap;
+                gap: 0.8em;
+            }
+            .project { border-left: none; border-top: 5px solid var(--color-secondary); }
+            .key-methods { justify-content: center; }
+        }
+    </style>
+</head>
 <body>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+    <section class="hero" id="home">
+        <div class="container">
+            
+
+            <h1>Imauri Hazel</h1>
+            <p>Senior UX Researcher | Advanced Methodologies & Global Team Collaboration</p>
+            <div class="contact-links">
+                <a href="#projects">EXPERIENCE</a> |
+                <a href="mailto:imaurilhazel@gmail.com">EMAIL</a> |
+                <a href="https://www.linkedin.com/in/imaurih/" target="_blank">LINKEDIN</a>
+            </div>
+        </div>
+    </section>
+
+    <nav class="site-nav">
+        <div class="container">
+            <ul>
+                <li><a href="#projects">PROJECTS</a></li>
+                <li><a href="#skills">METHODS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main class="container content-area">
+        
+        <h2 id="projects">Selected Professional Experience</h2>
+
+        <article class="project">
+            <div class="project-meta">
+                <span class="company"><span class="highlight-box">CISION</span></span>
+                <span class="date">Jun 2024 – Dec 2024</span>
+            </div>
+            <h3>Rigor in Data: Comparative Analysis of Automated vs. Human Coding</h3>
+            <p>Focus on advanced quantitative methods to validate the efficiency of automated analysis tools, directly applicable to large-scale text analysis for content and assessments.</p>
+            <p><span class="strong-text">Contribution:</span> Designed and executed a <span class="strong-text">Randomized Single-Blinded Crossover Trial</span> comparing automated coding, human coding, and hybrid approaches. Used <span class="strong-text">repeated-measures analysis</span> to evaluate inter-rater agreement, confirming ability to manage <span class="highlight-box">large-scale text analysis</span> validation projects and statistical rigor.</p>
+            <ul class="key-methods">
+                <li>Randomized Crossover Trial</li>
+                <li>Quantitative Analysis (R/Python)</li>
+                <li>Usability Testing</li>
+            </ul>
+        </article>
+        
+        <article class="project">
+            <div class="project-meta">
+                <span class="company">UMBC</span>
+                <span class="date">Oct 2016 – Sep 2017</span>
+            </div>
+            <h3>Foundational Expertise: Improving Research Quality with Machine Learning Datasets</h3>
+            <p>High-level undergraduate research applying computational methods to research reliability, providing the foundational knowledge for <span class="highlight-box">NLP and clustering</span> techniques.</p>
+            <p><span class="strong-text">Contribution:</span> Applied data techniques relevant to <span class="strong-text">Natural Language Processing (NLP)</span> and <span class="strong-text">text mining</span> to ensure data quality from large, complex, user-generated text datasets (e.g., crowdsourcing platforms). This confirms early proficiency in a programming language (Python/R) for text analysis and data verification.</p>
+            <ul class="key-methods">
+                <li>Task Analysis of HITs</li>
+                <li>Machine-Learning Dataset Surveys</li>
+                <li>Verification Methods</li>
+            </ul>
+        </article>
+
+        <article class="project">
+            <div class="project-meta">
+                <span class="company">TOR PROJECT</span>
+                <span class="date">Jan 2025 – Present</span>
+            </div>
+            <h3>Innovation & Collaboration: UX for Security and Privacy Products</h3>
+            <p>Focus on driving product innovation and information architecture within an agile, <span class="strong-text">multidisciplinary innovation team</span> (UX Designer and Strategist).</p>
+            <p><span class="strong-text">Contribution:</span> Used semi-structured interviews and diary studies to define the feature roadmap for privacy-conscious users. Applied <span class="strong-text">Card Sorting/Tree Testing</span> to refine the complex information architecture of the public-facing platform, demonstrating ability to collaborate and deliver within sprint cycles.</p>
+            <ul class="key-methods">
+                <li>Semi-structured Interviews</li>
+                <li>Card Sorting & Tree Testing</li>
+                <li>Collaborative Design/Strategy</li>
+            </ul>
+        </article>
+
+        <article class="project">
+            <div class="project-meta">
+                <span class="company">YUX / BRIGHTER RESEARCH (Govt. Contract)</span>
+                <span class="date">Jun 2023 – May 2024</span>
+            </div>
+            <h3>Lead Research & Global Context: Government and International Studies</h3>
+            <p>Focus on managing research logistics and insights across diverse international contexts, aligning with the need for global collaboration.</p>
+            <p><span class="strong-text">Contribution:</span> Led research for a <span class="strong-text">U.S. Government (NAEP) contract</span>, optimizing testing content through in-person field studies. Also conducted large-scale international research (surveys across <span class="strong-text">17 countries</span>) and facilitated stakeholder co-creation sessions, preparing me for collaboration with global teams and supporting product development.</p>
+            <ul class="key-methods">
+                <li>Lead Researcher Responsibility</li>
+                <li>In-person Field Study</li>
+                <li>Cross-Country Surveys</li>
+            </ul>
+        </article>
+        
+        <h2 id="skills">Core Research Methodologies & Skills</h2>
+        <div class="project" style="border-left: 5px solid var(--color-primary);">
+            <p style="font-style: italic; color: #4b5563;">5+ years of professional experience, including Lead Researcher roles, focused on applying rigorous, advanced methodologies to complex challenges.</p>
+            <ul class="key-methods skills-list">
+                <li><span class="strong-text">Advanced Quant / NLP:</span> Text Mining, Clustering, Python/R Proficiency, Randomized Trials</li>
+                <li><span class="strong-text">Qualitative / Field:</span> Semi-structured Interviews, Diary Studies, Observational Research, Ethnography</li>
+                <li><span class="strong-text">Strategy / Usability:</span> Card Sorting, Tree Testing, Co-creation Workshops, Information Architecture</li>
+            </ul>
+            <p style="margin-top: 1.5em; font-size: 1em; color: var(--color-text);">*Note: Experience includes managing research studies for <span class="highlight-box">3-4 week turnaround</span> (Required Skill).*</p>
+        </div>
+
+    </main>
+
+    <footer class="site-footer" id="contact">
+        <div class="container">
+            <p>Advanced methodological background, ready to deliver insights that shape the next generation of health professionals.</p>
+            <p>Let's Connect: <a href="mailto:imaurilhazel@gmail.com">imaurilhazel@gmail.com</a> | &copy; 2025 Imauri Hazel Portfolio.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
